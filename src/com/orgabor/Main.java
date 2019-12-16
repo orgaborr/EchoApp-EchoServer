@@ -19,6 +19,11 @@ public class Main {
 				PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
 				
 				String echoString = input.readLine();
+				try {
+					Thread.sleep(15000);
+				} catch(InterruptedException e) {
+					System.out.println("Thread interrupted");
+				}
 				if(echoString.equals("exit")) {
 					break;
 				}
