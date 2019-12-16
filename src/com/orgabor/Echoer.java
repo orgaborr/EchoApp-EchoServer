@@ -18,15 +18,15 @@ public class Echoer extends Thread {
 		try {
 			BufferedReader input = new BufferedReader(
 								   new InputStreamReader(socket.getInputStream()));
-			PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
+			PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
 			
 			while(true) {
 				String echoString = input.readLine();
-				if(echoString.contentEquals("exit")) {
+				if(echoString.equals("exit")) {
 					break;
 				}
 				
-				System.out.println(echoString);
+				output.println(echoString);
 			}
 		} catch(IOException e) {
 			System.out.println("Thread error: " + e.getMessage());
