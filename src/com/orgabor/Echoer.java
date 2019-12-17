@@ -22,10 +22,11 @@ public class Echoer extends Thread {
 			
 			while(true) {
 				String echoString = input.readLine();
+				System.out.println("Received client imput: " + echoString);
 				if(echoString.equals("exit")) {
 					break;
 				}
-				
+			
 				output.println(echoString);
 			}
 		} catch(IOException e) {
